@@ -8,11 +8,35 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    @IBOutlet private weak var movieCollectionView: UICollectionView! {
+        didSet {
+            movieCollectionView.delegate = self
+            movieCollectionView.dataSource = self
+        }
+    }
+    
+    private var movieList = [Result]() {
+        didSet {
+            movieCollectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         configureNavigationBar()
+
+        callRequest()
+    }
+    
+    func callRequest() {
+        MovieAPIManager.shared.getTrendingMovies(type: .trendingDay) { data in
+            guard let results = data.results else { return }
+            
+            self.movieList = results
+            print("JSON: \(data)")
+        }
     }
     
     @objc func listButtonClicked(_sender: UIButton) {
@@ -34,15 +58,16 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 3
+        return movieList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         
-        let row = Movie.list[indexPath.row]
+        let row = movieList[indexPath.row]
+        
+        return cell
     }
 
 }
