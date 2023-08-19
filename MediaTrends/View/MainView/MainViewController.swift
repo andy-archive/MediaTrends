@@ -76,6 +76,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController {
     
     func configureNavigationBar() {
+        let navigationBar = UINavigationBar()
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(navigationBar)
+        
+        let safeArea = self.view.safeAreaLayoutGuide
+
+        navigationBar.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        navigationBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        navigationBar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        
         let listImage = UIImage(systemName: "list.triangle")
         let searchImage = UIImage(systemName: "magnifyingglass")
         

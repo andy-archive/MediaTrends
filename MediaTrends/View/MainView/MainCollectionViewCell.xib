@@ -124,6 +124,13 @@
                 <constraint firstItem="Gmt-cg-Lus" firstAttribute="top" secondItem="NMh-rx-dbX" secondAttribute="bottom" constant="8" id="yYr-DJ-lr6"/>
             </constraints>
             <size key="customSize" width="531" height="646"/>
+            <connections>
+                <outlet property="genreLabel" destination="NMh-rx-dbX" id="RzL-cw-Md0"/>
+                <outlet property="movieImageView" destination="yzq-SD-aNW" id="W3T-3i-tas"/>
+                <outlet property="movieTitleLabel" destination="mtF-jv-Zuc" id="JUn-kY-o1b"/>
+                <outlet property="releaseDateLabel" destination="ZWU-XY-n0Q" id="NzC-36-xGP"/>
+                <outlet property="voteAverageLabel" destination="Ac0-Ua-ky3" id="3Uf-Sr-3Uj"/>
+            </connections>
             <point key="canvasLocation" x="-108" y="55"/>
         </collectionViewCell>
     </objects>
