@@ -13,10 +13,12 @@ class MainViewController: UIViewController {
         didSet {
             movieCollectionView.delegate = self
             movieCollectionView.dataSource = self
+            let nib = UINib(nibName: MainCollectionViewCell.identifier, bundle: nil)
+            movieCollectionView.register(nib, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
         }
     }
     
-    private var movieList = [Result]() {
+    private var movieList = [Movie]() {
         didSet {
             movieCollectionView.reloadData()
         }
@@ -24,18 +26,24 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         configureNavigationBar()
-
+        configureCollectionViewLayout()
         callRequest()
+    }
+    
+    func configureCollectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 50
+        layout.itemSize = CGSize(width: width, height: width)
+        movieCollectionView.collectionViewLayout = layout
     }
     
     func callRequest() {
         MovieAPIManager.shared.getTrendingMovies(type: .trendingDay) { data in
-            guard let results = data.results else { return }
-            
-            self.movieList = results
-            print("JSON: \(data)")
+            self.movieList = data.results
         }
     }
     
@@ -64,8 +72,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        
         let row = movieList[indexPath.row]
+        cell.configureCell(row: row)
         
         return cell
     }
@@ -77,11 +85,11 @@ extension MainViewController {
     
     func configureNavigationBar() {
         let navigationBar = UINavigationBar()
-        navigationBar.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(navigationBar)
         
-        let safeArea = self.view.safeAreaLayoutGuide
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
 
+        let safeArea = self.view.safeAreaLayoutGuide
         navigationBar.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         navigationBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
         navigationBar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true

@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - Movie
-struct Movie: Codable {
+struct MovieList: Codable {
     let page: Int
-    let results: [Result]?
+    let results: [Movie]
     let totalPages: Int
     let totalResults: Int
 
@@ -22,10 +22,10 @@ struct Movie: Codable {
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Movie: Codable {
     let adult, video: Bool
     let id, voteCount: Int
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let backdropPath, originalTitle, overview, posterPath, releaseDate, title: String
     let mediaType: MediaType
     let genreIDS: [Int]
@@ -47,11 +47,4 @@ struct Result: Codable {
 
 enum MediaType: String, Codable {
     case movie = "movie"
-}
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case fr = "fr"
-    case hi = "hi"
-    case tr = "tr"
 }

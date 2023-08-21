@@ -19,12 +19,12 @@ class MovieAPIManager {
         "access": "application/json"
     ]
     
-    func getTrendingMovies(type: Endpoint, completionHandler: @escaping (Movie) -> Void) {
+    func getTrendingMovies(type: Endpoint, completionHandler: @escaping (MovieList) -> Void) {
         
         let url = type.requestURL
         AF.request(url, method: .get, headers: headers)
             .validate(statusCode: 200...500)
-            .responseDecodable(of: Movie.self) { response in
+            .responseDecodable(of: MovieList.self) { response in
                 switch response.result {
                 case .success(let value):
                     completionHandler(value)
