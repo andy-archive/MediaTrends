@@ -76,20 +76,23 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		3866CB2D2A8B0D4B00655AF4 /* ListView */ = {
+		38288E582A94AFBD00AED829 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */,
+				38F513022A8630AD00389F6D /* Storyboard */,
+				38288E592A94AFEA00AED829 /* View */,
+				38F512F72A862F4400389F6D /* ViewController */,
 			);
-			path = ListView;
+			path = Scene;
 			sourceTree = "<group>";
 		};
-		3866CB302A8B0D6C00655AF4 /* SearchView */ = {
+		38288E592A94AFEA00AED829 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
+				3878C8C22A8A5CCD0068543B /* MainCollectionViewCell.swift */,
+				3878C8C32A8A5CCD0068543B /* MainCollectionViewCell.xib */,
 			);
-			path = SearchView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		3866CB332A8B0FBA00655AF4 /* Utility */ = {
@@ -98,16 +101,6 @@
 				3866CB342A8B0FED00655AF4 /* ReusableViewProtocol.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		3878C8BD2A8A5BA50068543B /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				3878C8BB2A8A59490068543B /* MainViewController.swift */,
-				3878C8C22A8A5CCD0068543B /* MainCollectionViewCell.swift */,
-				3878C8C32A8A5CCD0068543B /* MainCollectionViewCell.xib */,
-			);
-			path = MainView;
 			sourceTree = "<group>";
 		};
 		38F512D62A862F1200389F6D = {
@@ -135,9 +128,8 @@
 				38F512F62A862F3700389F6D /* Application */,
 				38F512F82A862F5900389F6D /* Model */,
 				380AC0E92A907C3000017689 /* Network */,
-				38F513022A8630AD00389F6D /* Storyboard */,
+				38288E582A94AFBD00AED829 /* Scene */,
 				3866CB332A8B0FBA00655AF4 /* Utility */,
-				38F512F72A862F4400389F6D /* View */,
 			);
 			path = MediaTrends;
 			sourceTree = "<group>";
@@ -151,14 +143,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		38F512F72A862F4400389F6D /* View */ = {
+		38F512F72A862F4400389F6D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3866CB302A8B0D6C00655AF4 /* SearchView */,
-				3866CB2D2A8B0D4B00655AF4 /* ListView */,
-				3878C8BD2A8A5BA50068543B /* MainView */,
+				3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */,
+				3878C8BB2A8A59490068543B /* MainViewController.swift */,
+				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
 			);
-			path = View;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		38F512F82A862F5900389F6D /* Model */ = {
