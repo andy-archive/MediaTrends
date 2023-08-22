@@ -8,15 +8,15 @@
 import Foundation
 
 enum Endpoint {
-    case trendingDay
     case credit
+    case trendingDay
     
     var requestURL: String {
         switch self {
-        case .trendingDay:
-            return URL.makeEndpointString("/trending/movie/day?language=en-US")
         case .credit:
-            return URL.makeEndpointString("/credit/")
+            return URL.makeBaseEndpoint("/movie/")
+        case .trendingDay:
+            return URL.makeBaseEndpoint("/trending/movie/day?language=en-US")
         }
     }
 }

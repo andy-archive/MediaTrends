@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet private weak var movieCollectionView: UICollectionView! {
         didSet {
@@ -31,7 +32,7 @@ class MainViewController: UIViewController {
         callRequest()
     }
     
-    func configureCollectionViewLayout() {
+    private func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         
@@ -41,10 +42,16 @@ class MainViewController: UIViewController {
         movieCollectionView.collectionViewLayout = layout
     }
     
-    func callRequest() {
+    private func callRequest() {
         MovieAPIManager.shared.getTrendingMovies(type: .trendingDay) { data in
             self.movieList = data.results
         }
+    }
+    
+    @objc func detailButtonClicked(_sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailViewController.identifier) as? DetailViewController else { return }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func listButtonClicked(_sender: UIButton) {
@@ -73,12 +80,23 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         let row = movieList[indexPath.row]
+        
         cell.configureCell(row: row)
         
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailViewController.identifier) as? DetailViewController else { return }
+        let row = movieList[indexPath.row]
+        
+        vc.movie = row
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
+
 // MARK: NavigationBar
 
 extension MainViewController {

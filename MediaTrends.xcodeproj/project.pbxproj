@@ -12,6 +12,9 @@
 		380AC0F12A90832900017689 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AC0F02A90832900017689 /* URL+Extension.swift */; };
 		380AC0F32A9083A800017689 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AC0F22A9083A800017689 /* Endpoint.swift */; };
 		380AC0F52A90851000017689 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AC0F42A90851000017689 /* MovieList.swift */; };
+		38288E5B2A94C23000AED829 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38288E5A2A94C23000AED829 /* DetailViewController.swift */; };
+		38288E5D2A94CE0200AED829 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38288E5C2A94CE0200AED829 /* DetailTableViewCell.swift */; };
+		38288E5F2A94D32800AED829 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38288E5E2A94D32800AED829 /* Credit.swift */; };
 		3866CB2F2A8B0D6300655AF4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */; };
 		3866CB322A8B0D8100655AF4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CB312A8B0D8100655AF4 /* SearchViewController.swift */; };
 		3866CB352A8B0FED00655AF4 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CB342A8B0FED00655AF4 /* ReusableViewProtocol.swift */; };
@@ -35,6 +38,9 @@
 		380AC0F02A90832900017689 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		380AC0F22A9083A800017689 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		380AC0F42A90851000017689 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
+		38288E5A2A94C23000AED829 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		38288E5C2A94CE0200AED829 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		38288E5E2A94D32800AED829 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3866CB312A8B0D8100655AF4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3866CB342A8B0FED00655AF4 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 		38288E592A94AFEA00AED829 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38288E5C2A94CE0200AED829 /* DetailTableViewCell.swift */,
 				3878C8C22A8A5CCD0068543B /* MainCollectionViewCell.swift */,
 				3878C8C32A8A5CCD0068543B /* MainCollectionViewCell.xib */,
 			);
@@ -146,6 +153,7 @@
 		38F512F72A862F4400389F6D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				38288E5A2A94C23000AED829 /* DetailViewController.swift */,
 				3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */,
 				3878C8BB2A8A59490068543B /* MainViewController.swift */,
 				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
@@ -157,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				380AC0F42A90851000017689 /* MovieList.swift */,
+				38288E5E2A94D32800AED829 /* Credit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,13 +262,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38288E5B2A94C23000AED829 /* DetailViewController.swift in Sources */,
 				3866CB322A8B0D8100655AF4 /* SearchViewController.swift in Sources */,
+				38288E5D2A94CE0200AED829 /* DetailTableViewCell.swift in Sources */,
 				38F512E32A862F1200389F6D /* AppDelegate.swift in Sources */,
 				380AC0F52A90851000017689 /* MovieList.swift in Sources */,
 				380AC0EB2A907C3C00017689 /* APIKey.swift in Sources */,
 				380AC0F12A90832900017689 /* URL+Extension.swift in Sources */,
 				38F512E52A862F1200389F6D /* SceneDelegate.swift in Sources */,
 				3878C8BC2A8A59490068543B /* MainViewController.swift in Sources */,
+				38288E5F2A94D32800AED829 /* Credit.swift in Sources */,
 				3866CB352A8B0FED00655AF4 /* ReusableViewProtocol.swift in Sources */,
 				380AC0EF2A90804900017689 /* MovieAPIManager.swift in Sources */,
 				3866CB2F2A8B0D6300655AF4 /* ListViewController.swift in Sources */,
