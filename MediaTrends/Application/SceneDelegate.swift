@@ -11,23 +11,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
         let isLaunchedBefore = UserDefaults.standard.bool(forKey: "isLaunchedBefore")
-        print(isLaunchedBefore)
         
         if !isLaunchedBefore {
             let vc = InitialViewController()
             window?.rootViewController = vc
         } else {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as? MainViewController else { return }
+            
+//            let sb = UIStoryboard(name: "Main", bundle: nil)
+//            guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
+            let vc = TrendViewController()
             let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
+            window?.rootViewController = vc
         }
         window?.makeKeyAndVisible()
     }
