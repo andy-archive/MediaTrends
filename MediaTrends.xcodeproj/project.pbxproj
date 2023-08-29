@@ -21,6 +21,10 @@
 		38534B502A9E017D00638175 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B4F2A9E017D00638175 /* EditViewController.swift */; };
 		38534B522A9E039900638175 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B512A9E039900638175 /* EditView.swift */; };
 		38534B572A9E0AAE00638175 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B562A9E0AAE00638175 /* UIImage+.swift */; };
+		38534B592A9E244C00638175 /* PassProfileDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B582A9E244C00638175 /* PassProfileDataViewController.swift */; };
+		38534B5D2A9E435300638175 /* PassProfileDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B5C2A9E435300638175 /* PassProfileDataView.swift */; };
+		38534B5F2A9E4D9900638175 /* PassDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B5E2A9E4D9900638175 /* PassDataDelegate.swift */; };
+		38534B612A9E53A200638175 /* NSNotification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B602A9E53A200638175 /* NSNotification+.swift */; };
 		3866CB2F2A8B0D6300655AF4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */; };
 		3866CB322A8B0D8100655AF4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CB312A8B0D8100655AF4 /* SearchViewController.swift */; };
 		3866CB352A8B0FED00655AF4 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866CB342A8B0FED00655AF4 /* ReusableViewProtocol.swift */; };
@@ -60,6 +64,10 @@
 		38534B4F2A9E017D00638175 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		38534B512A9E039900638175 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		38534B562A9E0AAE00638175 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		38534B582A9E244C00638175 /* PassProfileDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassProfileDataViewController.swift; sourceTree = "<group>"; };
+		38534B5C2A9E435300638175 /* PassProfileDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassProfileDataView.swift; sourceTree = "<group>"; };
+		38534B5E2A9E4D9900638175 /* PassDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataDelegate.swift; sourceTree = "<group>"; };
+		38534B602A9E53A200638175 /* NSNotification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+.swift"; sourceTree = "<group>"; };
 		3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3866CB312A8B0D8100655AF4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3866CB342A8B0FED00655AF4 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 				385073952A9DDA1B00B349C1 /* ProfileView.swift */,
 				38534B512A9E039900638175 /* EditView.swift */,
 				38DEF45E2A9C9F4F00E73464 /* TrendCollectionViewCell.swift */,
+				38534B5C2A9E435300638175 /* PassProfileDataView.swift */,
 				38DEF4622A9CA0B600E73464 /* TrendView.swift */,
 			);
 			path = View;
@@ -150,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				38534B562A9E0AAE00638175 /* UIImage+.swift */,
+				38534B602A9E53A200638175 /* NSNotification+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -159,6 +169,7 @@
 			children = (
 				38DEF4542A9C9B7000E73464 /* Base */,
 				3866CB342A8B0FED00655AF4 /* ReusableViewProtocol.swift */,
+				38534B5E2A9E4D9900638175 /* PassDataDelegate.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 				38534B4F2A9E017D00638175 /* EditViewController.swift */,
 				383231922A987ADF00717264 /* InitialViewController.swift */,
 				3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */,
+				38534B582A9E244C00638175 /* PassProfileDataViewController.swift */,
 				385073932A9DD96000B349C1 /* ProfileViewController.swift */,
 				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
 				38DEF45A2A9C9E4200E73464 /* TrendViewController.swift */,
@@ -341,11 +353,13 @@
 				38DEF4562A9C9BC400E73464 /* BaseView.swift in Sources */,
 				38DEF45D2A9C9E6C00E73464 /* BaseViewController.swift in Sources */,
 				38534B572A9E0AAE00638175 /* UIImage+.swift in Sources */,
+				38534B592A9E244C00638175 /* PassProfileDataViewController.swift in Sources */,
 				38F512E32A862F1200389F6D /* AppDelegate.swift in Sources */,
 				380AC0F52A90851000017689 /* MovieList.swift in Sources */,
 				380AC0EB2A907C3C00017689 /* APIKey.swift in Sources */,
 				380AC0F12A90832900017689 /* URL+Extension.swift in Sources */,
 				38F512E52A862F1200389F6D /* SceneDelegate.swift in Sources */,
+				38534B5D2A9E435300638175 /* PassProfileDataView.swift in Sources */,
 				3878C8BC2A8A59490068543B /* MainViewController.swift in Sources */,
 				38DEF45B2A9C9E4200E73464 /* TrendViewController.swift in Sources */,
 				38288E5F2A94D32800AED829 /* Credit.swift in Sources */,
@@ -353,6 +367,8 @@
 				380AC0EF2A90804900017689 /* MovieAPIManager.swift in Sources */,
 				385073942A9DD96000B349C1 /* ProfileViewController.swift in Sources */,
 				385073962A9DDA1B00B349C1 /* ProfileView.swift in Sources */,
+				38534B5F2A9E4D9900638175 /* PassDataDelegate.swift in Sources */,
+				38534B612A9E53A200638175 /* NSNotification+.swift in Sources */,
 				38DEF4652A9CC6EE00E73464 /* BaseCollectionViewCell.swift in Sources */,
 				3866CB2F2A8B0D6300655AF4 /* ListViewController.swift in Sources */,
 				38534B522A9E039900638175 /* EditView.swift in Sources */,

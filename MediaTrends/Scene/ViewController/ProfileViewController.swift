@@ -33,10 +33,12 @@ final class ProfileViewController: BaseViewController {
         )
     }
 
-    @objc func listButtonClicked() {
+    @objc
+    func listButtonClicked() {
     }
     
-    @objc func editButtonClicked() {
+    @objc
+    func editButtonClicked() {
         let vc = EditViewController()
         vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: true)

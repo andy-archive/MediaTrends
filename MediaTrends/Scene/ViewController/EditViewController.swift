@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol PassDataDelegate {
-    func receiveData(data: String)
-}
-
 final class EditViewController: BaseViewController {
     
     private let mainView = EditView()
@@ -25,11 +21,45 @@ final class EditViewController: BaseViewController {
         configureNavigationBar()
     }
     
-    override func configureView() {
-        super.configureView()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(bioButtonNotificationObserver(notification:)),
+            name: .selectString,
+            object: nil
+        )
     }
     
-    override func setConstraints() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .selectString,
+            object: nil
+        )
+    }
+    
+    override func configureView() {
+        super.configureView()
+        
+        title = "프로필 편집"
+        
+        mainView.nameInfoButton.addTarget(
+            self,
+            action: #selector(nameInfoButtonClicked),
+            for: .touchUpInside
+        )
+        mainView.usernameInfoButton.addTarget(
+            self,
+            action: #selector(usernameInfoButtonClicked),
+            for: .touchUpInside
+        )
+        mainView.bioButton.addTarget(
+            self,
+            action: #selector(bioButtonClicked),
+            for: .touchUpInside
+        )
     }
     
     @objc
@@ -40,6 +70,43 @@ final class EditViewController: BaseViewController {
     @objc
     func doneButtonClicked() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func nameInfoButtonClicked() { // delegate를 통한 값 전달
+        let vc = PassProfileDataViewController()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func usernameInfoButtonClicked() { // closure를 통한 값 전달
+        let vc = PassProfileDataViewController()
+        vc.completionHandler = { text in
+            self.mainView.usernameInfoButton.setTitle(text, for: .normal)
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func bioButtonNotificationObserver(notification: NSNotification) { // notification을 통한 값 전달
+        if let name = notification.userInfo?["bio"] as? String {
+            mainView.bioButton.setTitle(name, for: .normal)
+        }
+    }
+    
+    @objc
+    func bioButtonClicked() {
+        let vc = PassProfileDataViewController()
+        guard let textField = vc.mainView.textField.text else { return }
+        
+        NotificationCenter.default.post(
+            name: NSNotification.Name("InputBio"),
+            object: nil,
+            userInfo: ["bio": textField]
+        )
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -60,5 +127,13 @@ extension EditViewController {
             target: self,
             action: #selector(doneButtonClicked)
         )
+    }
+}
+
+//MARK: PassDataDelegate
+
+extension EditViewController: PassDataDelegate {
+    func receiveData(data: String) {
+        mainView.nameInfoButton.setTitle("\(data)", for: .normal)
     }
 }
