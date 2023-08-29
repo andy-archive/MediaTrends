@@ -23,6 +23,7 @@ final class TrendViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
         callRequest()
     }
     
@@ -30,6 +31,12 @@ final class TrendViewController: BaseViewController {
         super.configureView()
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+    }
+    
+    @objc
+    func profileButtonClicked() {
+        let vc = ProfileViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -59,6 +66,19 @@ extension TrendViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         return cell
     }
-    
-    
+}
+
+// MARK: NavigationBar
+
+extension TrendViewController {
+    private func configureNavigationBar() {
+        let profileImage = UIImage(systemName: "person.circle")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: profileImage,
+            style: .plain,
+            target: self,
+            action: #selector(profileButtonClicked)
+        )
+    }
 }

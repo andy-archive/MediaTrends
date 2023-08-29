@@ -22,12 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let vc = InitialViewController()
             window?.rootViewController = vc
         } else {
+            //MARK: Storyboard
+            // let sb = UIStoryboard(name: "Main", bundle: nil)
+            //guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
             
-//            let sb = UIStoryboard(name: "Main", bundle: nil)
-//            guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
+            //MARK: CodeBased
             let vc = TrendViewController()
             let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = vc
+            window?.rootViewController = nav
         }
         window?.makeKeyAndVisible()
     }

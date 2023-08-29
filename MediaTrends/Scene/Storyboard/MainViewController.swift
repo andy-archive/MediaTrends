@@ -48,19 +48,22 @@ final class MainViewController: UIViewController {
         }
     }
     
-    @objc func detailButtonClicked(_sender: UIButton) {
+    @objc
+    func detailButtonClicked(_sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailViewController.identifier) as? DetailViewController else { return }
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func listButtonClicked(_sender: UIButton) {
+    @objc
+    func listButtonClicked(_sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: ListViewController.identifier) as? ListViewController else { return }
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func searchButtonClicked(_sender: UIButton) {
+    @objc
+    func searchButtonClicked(_sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: SearchViewController.identifier) as? SearchViewController else { return }
         
         navigationController?.pushViewController(vc, animated: true)
