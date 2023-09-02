@@ -19,7 +19,7 @@ final class InitialViewController: UIPageViewController {
     
     var list: [UIViewController] = []
     
-    var startButton = {
+    private let startButton = {
         let button = UIButton()
         button.backgroundColor = .systemBrown
         button.setTitle("시작하기", for: .normal)
@@ -37,7 +37,7 @@ final class InitialViewController: UIPageViewController {
         setStartButton()
    }
     
-    func setPageView() {
+    private func setPageView() {
         list = [FirstViewController(), SecondViewController(), ThirdViewController()]
         
         delegate = self
@@ -47,9 +47,11 @@ final class InitialViewController: UIPageViewController {
         setViewControllers([first], direction: .forward, animated: true)
     }
     
-    func setStartButton() {
+    private func setStartButton() {
         startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
+        
         view.addSubview(startButton)
+        
         startButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             startButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -57,13 +59,14 @@ final class InitialViewController: UIPageViewController {
         ])
     }
     
-    @objc func startButtonClicked() {
+    @objc
+    func startButtonClicked() {
         UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as? MainViewController else { return }
+        
+        let vc = TrendViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+        present(nav, animated: false)
     }
 }
 

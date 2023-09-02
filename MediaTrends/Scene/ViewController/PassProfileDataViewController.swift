@@ -11,7 +11,7 @@ final class PassProfileDataViewController: BaseViewController {
     
     let mainView = PassProfileDataView()
     
-    var delegate: PassDataDelegate?
+    weak var delegate: PassDataDelegate?
     var completionHandler: ((String) -> Void)?
     
     override func loadView() {

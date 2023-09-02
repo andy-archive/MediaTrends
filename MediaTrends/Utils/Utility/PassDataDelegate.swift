@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PassDataDelegate {
+protocol PassDataDelegate: AnyObject {
     func receiveData(data: String)
 }

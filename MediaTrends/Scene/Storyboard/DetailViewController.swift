@@ -49,9 +49,9 @@ final class DetailViewController: UIViewController {
     private func callRequest() {
         guard let movieId = movie?.id else { return }
 
-        MovieAPIManager.shared.getMovieCredit(type: .credit, movieId: movieId) { data in
-            print("JSON: \(data)")
-        }
+//        MovieAPIManager.shared.getMovieCredit(type: .credit, movieId: movieId) { data in
+//            print("JSON: \(data)")
+//        }
     }
     
     private func configureNavigationBar() {

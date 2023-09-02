@@ -9,13 +9,9 @@ import UIKit
 
 final class TrendViewController: BaseViewController {
 
-    let mainView = TrendView()
+    private let mainView = TrendView()
     
-    var movieList = [Movie]() {
-        didSet {
-            mainView.collectionView.reloadData()
-        }
-    }
+    var movieList = [Movie]()
     
     override func loadView() {
         self.view = mainView
@@ -44,8 +40,16 @@ final class TrendViewController: BaseViewController {
 
 extension TrendViewController {
     private func callRequest() {
-        MovieAPIManager.shared.getTrendingMovies(type: .trendingDay) { data in
-            self.movieList = data.results
+        
+        MovieAPIManager.shared.getTrendingMovies(type: .trendingDay) { movie in
+            
+            guard let movie = movie else {
+                print("ERROR")
+                return
+            }
+            
+            self.movieList = movie.results
+            self.mainView.collectionView.reloadData()
         }
     }
 }

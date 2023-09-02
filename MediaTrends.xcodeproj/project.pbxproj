@@ -129,10 +129,10 @@
 		38288E592A94AFEA00AED829 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				385073952A9DDA1B00B349C1 /* ProfileView.swift */,
 				38534B512A9E039900638175 /* EditView.swift */,
-				38DEF45E2A9C9F4F00E73464 /* TrendCollectionViewCell.swift */,
 				38534B5C2A9E435300638175 /* PassProfileDataView.swift */,
+				385073952A9DDA1B00B349C1 /* ProfileView.swift */,
+				38DEF45E2A9C9F4F00E73464 /* TrendCollectionViewCell.swift */,
 				38DEF4622A9CA0B600E73464 /* TrendView.swift */,
 			);
 			path = View;
@@ -229,10 +229,8 @@
 			children = (
 				38534B4F2A9E017D00638175 /* EditViewController.swift */,
 				383231922A987ADF00717264 /* InitialViewController.swift */,
-				3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */,
 				38534B582A9E244C00638175 /* PassProfileDataViewController.swift */,
 				385073932A9DD96000B349C1 /* ProfileViewController.swift */,
-				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
 				38DEF45A2A9C9E4200E73464 /* TrendViewController.swift */,
 			);
 			path = ViewController;
@@ -253,10 +251,12 @@
 				38288E5C2A94CE0200AED829 /* DetailTableViewCell.swift */,
 				38288E5A2A94C23000AED829 /* DetailViewController.swift */,
 				38F512ED2A862F1400389F6D /* LaunchScreen.storyboard */,
+				3866CB2E2A8B0D6300655AF4 /* ListViewController.swift */,
 				38F512E82A862F1200389F6D /* Main.storyboard */,
 				3878C8C22A8A5CCD0068543B /* MainCollectionViewCell.swift */,
 				3878C8C32A8A5CCD0068543B /* MainCollectionViewCell.xib */,
 				3878C8BB2A8A59490068543B /* MainViewController.swift */,
+				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";

@@ -23,7 +23,6 @@ final class TrendView: BaseView {
     override func setConstraints() {
         collectionView.snp.makeConstraints { make in
             make.size.equalToSuperview()
-//            make.bottom.equalToSuperview()
         }
     }
 }
@@ -40,10 +39,4 @@ extension TrendView {
         layout.itemSize = CGSize(width: size, height: size)
         return layout
     }
-}
-
-// MARK: NavigationBar
-
-extension TrendView {
-    
 }
