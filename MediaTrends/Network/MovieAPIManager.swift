@@ -14,7 +14,7 @@ final class MovieAPIManager {
     
     private init() {}
     
-    let headers = [
+    private let headers = [
         "Authorization": "Bearer \(APIKey.accessToken)",
         "access": "application/json"
     ]

@@ -24,7 +24,7 @@ final class ProfileViewController: BaseViewController {
     override func configureView() {
         super.configureView()
         
-        title = "내 프로필"
+        title = "MY Profile"
         
         mainView.editButton.addTarget(
             self,

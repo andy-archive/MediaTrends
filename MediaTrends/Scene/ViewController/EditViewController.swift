@@ -45,6 +45,8 @@ final class EditViewController: BaseViewController {
         
         title = "프로필 편집"
         
+        tabBarController?.tabBar.isHidden = true
+        
         mainView.nameInfoButton.addTarget(
             self,
             action: #selector(nameInfoButtonClicked),
@@ -64,11 +66,13 @@ final class EditViewController: BaseViewController {
     
     @objc
     func cancelButtonClicked() {
+        tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
     
     @objc
     func doneButtonClicked() {
+        tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
     

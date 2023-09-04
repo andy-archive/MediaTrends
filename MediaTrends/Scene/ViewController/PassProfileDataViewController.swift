@@ -28,9 +28,10 @@ final class PassProfileDataViewController: BaseViewController {
         super.viewDidDisappear(animated)
         
         guard let textField = mainView.textField.text else { return }
-        delegate?.receiveData(data: textField)
-        completionHandler?(textField)
-        NotificationCenter.default.post(
+        
+        delegate?.receiveData(data: textField) // 1. delegate 방식으로 값 전달
+        completionHandler?(textField)  // 2. closure 방식으로 값 전달
+        NotificationCenter.default.post( // 3. Notification 방식으로 값 전달
             name: NSNotification.Name("InputBio"),
             object: nil,
             userInfo: ["bio": textField]

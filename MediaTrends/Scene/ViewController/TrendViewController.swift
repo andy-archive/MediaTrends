@@ -25,14 +25,19 @@ final class TrendViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
+        
+        title = "HOT Movies"
+        
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
     }
     
     @objc
-    func profileButtonClicked() {
-        let vc = ProfileViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    func searchButtonClicked() {
+        let vc = SearchViewController()
+        navigationController?.pushViewController(vc, animated: false)
+//        vc.modalPresentationStyle = .fullScreen
+//        present(vc, animated: false)
     }
 }
 
@@ -58,12 +63,24 @@ extension TrendViewController {
 
 extension TrendViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return movieList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendCollectionViewCell.identifier, for: indexPath) as? TrendCollectionViewCell else { return UICollectionViewCell() }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: TrendCollectionViewCell.identifier,
+            for: indexPath)
+                as? TrendCollectionViewCell
+        else { return UICollectionViewCell() }
+        
         let row = movieList[indexPath.row]
         
         cell.configureCell(row: row)
@@ -76,13 +93,11 @@ extension TrendViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension TrendViewController {
     private func configureNavigationBar() {
-        let profileImage = UIImage(systemName: "person.circle")
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: profileImage,
+            image: UIImage(systemName: "magnifyingglass"),
             style: .plain,
             target: self,
-            action: #selector(profileButtonClicked)
+            action: #selector(searchButtonClicked)
         )
     }
 }

@@ -13,8 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let scene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: scene)
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
         
         let isLaunchedBefore = UserDefaults.standard.bool(forKey: "isLaunchedBefore")
         
@@ -27,9 +27,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
             
             //MARK: CodeBased
-            let vc = TrendViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
+            let firstNav = UINavigationController(rootViewController: TrendViewController())
+            let secondNav = UINavigationController(rootViewController: ProfileViewController())
+            
+            let tabBarController = UITabBarController()
+            tabBarController.setViewControllers([firstNav, secondNav], animated: true)
+            
+            if let items = tabBarController.tabBar.items {
+                items[0].image = UIImage(systemName: "play.rectangle.on.rectangle")
+                items[0].selectedImage = UIImage(systemName: "play.rectangle.on.rectangle.fill")
+                items[0].title = "HOT"
+                
+                items[1].image = UIImage(systemName: "person")
+                items[1].selectedImage = UIImage(systemName: "person.fill")
+                items[1].title = "MY Profile"
+            }
+            window?.rootViewController = tabBarController
         }
         window?.makeKeyAndVisible()
     }

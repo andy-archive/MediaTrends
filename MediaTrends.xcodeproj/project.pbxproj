@@ -231,6 +231,7 @@
 				383231922A987ADF00717264 /* InitialViewController.swift */,
 				38534B582A9E244C00638175 /* PassProfileDataViewController.swift */,
 				385073932A9DD96000B349C1 /* ProfileViewController.swift */,
+				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
 				38DEF45A2A9C9E4200E73464 /* TrendViewController.swift */,
 			);
 			path = ViewController;
@@ -256,7 +257,6 @@
 				3878C8C22A8A5CCD0068543B /* MainCollectionViewCell.swift */,
 				3878C8C32A8A5CCD0068543B /* MainCollectionViewCell.xib */,
 				3878C8BB2A8A59490068543B /* MainViewController.swift */,
-				3866CB312A8B0D8100655AF4 /* SearchViewController.swift */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
